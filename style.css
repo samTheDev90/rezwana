@@ -1,0 +1,126 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.whole-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  animation: animate 20s ease-in-out infinite;
+  background-size:cover;
+}
+
+@media only screen and (max-width: 578px)
+{
+  .whole-container{
+    width: 100%;
+    height: 100vh;
+    background-size:cover;
+  }
+}
+@keyframes animate{
+  0%,100%{
+    background-image: url(pic1.jpg);
+  }
+  25%{
+    background-image: url(pic2.jpg);
+  }
+  50%{
+    background-image: url(pic3.jpg);
+  }
+  75%{
+    background-image: url(pic4.jpg);
+  }
+}
+.outer{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+}
+
+.container{
+  position: relative;
+
+  min-height: 100vh;
+  
+}
+.container h1{
+  margin-top: 60px;
+  color: #000000;
+  text-align: center;
+  padding: 15px;
+  font-size: 40px;
+  font-weight: normal;
+}
+.container .video-container{
+  top: 50%;
+  display: flex;
+  flex-wrap:wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 10px;
+}
+.container .video-container .video{
+  height: 250px;
+  width: 250px;
+  border: 5px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  cursor: pointer;
+  overflow: hidden;
+}
+.container .video-container .video video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: .2s linear;
+}
+.container .video-container .video:hover video{
+transform: scale(1.1);
+}
+.container .popup-video{
+  position: fixed;
+  top: 0;left:0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  height: 100%;
+  width: 100%;
+  transition: ease-in 2s;
+  display: none;
+
+}
+.container .popup-video video{
+  position: absolute;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 750px;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  object-fit: cover;
+  background-color: black;
+}
+.container .popup-video span{
+  position: absolute;
+  top: 5px; right: 20px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: bolder;
+  z-index: 1000;
+  cursor: pointer;
+}
+@media (max-width:768px){
+  .container .popup-video video{
+    width: 95%;
+    height: 80%;
+  }
+  .container .popup-video video{
+    object-fit: scale-down;
+  }
+}
